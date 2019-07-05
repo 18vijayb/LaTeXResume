@@ -1,0 +1,249 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Deedy - One Page Two Column Resume
+% LaTeX Template
+% Version 1.1 (30/4/2014)
+%
+% Original author:
+% Debarghya Das (http://debarghyadas.com)
+%
+% Original repository:
+% https://github.com/deedydas/Deedy-Resume
+%
+% IMPORTANT: THIS TEMPLATE NEEDS TO BE COMPILED WITH XeLaTeX
+%
+% This template uses several fonts not included with Windows/Linux by
+% default. If you get compilation errors saying a font is missing, find the line
+% on which the font is used and either change it to a font included with your
+% operating system or comment the line out to use the default font.
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% TODO:
+% 1. Integrate biber/bibtex for article citation under publications.
+% 2. Figure out a smoother way for the document to flow onto the next page.
+% 3. Add styling information for a "Projects/Hacks" section.
+% 4. Add location/address information
+% 5. Merge OpenFont and MacFonts as a single sty with options.
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% CHANGELOG:
+% v1.1:
+% 1. Fixed several compilation bugs with \renewcommand
+% 2. Got Open-source fonts (Windows/Linux support)
+% 3. Added Last Updated
+% 4. Move Title styling into .sty
+% 5. Commented .sty file.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Known Issues:
+% 1. Overflows onto second page if any column's contents are more than the
+% vertical limit
+% 2. Hacky space on the first bullet point on the second column.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[]{deedy-resume-openfont}
+
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     LAST UPDATED DATE
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     TITLE NAME
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\namesection{Vijay}{Bharadwaj}{ \urlstyle{same}\url{}
+\href{Website: https://18vijayb.github.io}{Website: https://18vijayb.github.io} \\
+\href{mailto:bhardav@purdue.edu}{bharadv@purdue.edu} | 510.358.6867
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     COLUMN ONE
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{minipage}[t]{0.3\textwidth} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     EDUCATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Education} 
+
+\subsection{Purdue University}
+\descript{West Lafayette, IN}
+\descript{BS in Computer Science with addl major in Math Statistics}
+\location{Expected Grad: May 2021 \\ Cumulative GPA: 3.89/4.0}
+\location{Scholastic Recognition: Dean's List}
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     COURSEWORK
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{1.5cm}
+\section{Coursework}
+\subsection{Current}
+\textbullet{Discrete Mathematics}
+\\
+\textbullet{Programming in C}
+\\
+\textbullet{Competitive Programming I}
+\\
+\textbullet{Differential Equations}
+\\
+\vspace{0.2cm}
+\subsection{Completed}
+\textbullet{Linear Algebra: A+}
+\\
+\textbullet{Python Programming: A+}
+\\
+\textbullet{Java Programming: A+}
+\\
+\textbullet{} AP CS w Data Structures: A \\
+\textbullet{} Compilers: A \\
+\textbullet{} Numerical Methods: A \\
+\textbullet{} Multi-variable Calculus: A \\
+\textbullet{} AP Statistics: A \\
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     SKILLS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{1.5cm}
+
+\section{Skills}
+\subsection{LANGUAGES}
+Java \textbullet{}Angular 6 \textbullet{} Typescript \\
+Microsoft SQL \textbullet{} HTML \textbullet{}Python \\
+Git \textbullet{} R \textbullet{} Pascal \textbullet{} Linux \\ 
+NodeJS \textbullet{} Assembly (MIPS) 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     CODING COMPETITIONS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{1.5cm}
+\section{CODING COMPETITIONS}
+
+\runsubsection{AMCS CODING CHALLENGE}
+\descript{\\2ND PLACE}
+\location{February 2019 | West Lafayette, IN}
+\sectionsep
+
+\runsubsection{USA Computing Olympiad}
+\descript{| Silver Level}
+\location{Dec 2015 | San Jose, CA}
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     CAMPUS INVOLVEMENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     COLUMN TWO
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{minipage} 
+\hfill
+\begin{minipage}[t]{0.67\textwidth} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     WORK EXPERIENCE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{WORK EXPERIENCE}
+
+\runsubsection{UPS Technology Intern}
+\descript{| Network Planning Tool (NPT)}
+\location{June 2019 - August 2019 | Louisville, KY}
+\vspace{\topsep} % Hacky fix for awkward extra vertical space
+\begin{tightemize}
+\item UPS planners use the NPT application, a smart logistics network that implements artificial intelligence, to forecast future shipment loads based on historical data in order to allocate workers and package cars to UPS hubs
+\item Added microservices to NPT UI, including writing code to generate Excel reports based on user inputs, enhanced current design, testing, and maintenance activities
+\item Programmed in Angular 6 (HTML and Typescript) for front-end UI using VSCode, Java for back-end using Spring Tools Suite; wrote Microsoft SQL queries using SQL Server Management Studio, used Git for version control
+\item Worked in Agile Scrum environment
+\end{tightemize}
+\sectionsep
+
+\runsubsection{Undergraduate Teaching Assistant, Purdue University}
+\location{\\ January 2019 - May 2019 | West Lafayette, IN}
+\vspace{\topsep} % Hacky fix for awkward extra vertical space
+\begin{tightemize}
+\item Proctored lab sessions, office hours; graded labs, homework and assisted students with Python programming for CS-17700: Programming with Multimedia Objects
+\end{tightemize}
+\sectionsep
+
+\runsubsection{Research Internship, University of California at Santa Cruz}
+\location{ \\ June 2017 - August 2017 | Santa Cruz, CA}
+\vspace{\topsep} % Hacky fix for awkward extra vertical space
+\begin{tightemize}
+\item Assisted PhD fellow at Biomedical Sciences lab in assessing prevalence of Toxoplasma Gondii parasite in Northern California, worked in team of three interns
+\item Compiled results in Excel, developed a program using R to calculate prevalence of parasite in each colony, generated graphs showing proportion of positive samples
+\end{tightemize}
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     PROJECTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section {PROJECTS}
+
+\runsubsection{UPS Hackathon}
+\location{June 2019 | Louisville, KY}
+\begin{tightemize}
+\item Built proof of concept blockchain to maintain records of UPS load transactions between hubs as team, constructed business model
+\item Contributions include web interface built with HTML and NodeJS, connection of front-end to back-end Spring Boot Java microservice
+\end{tightemize}
+\sectionsep
+
+\runsubsection{BOILERMAKE 36HR HACKATHON}
+\descript{}
+\location{October 2018 | West Lafayette, IN}
+\begin{tightemize}
+\item Developed "Mood Music," an application that uses FitBit API to obtain user's heart rate from FitBit and matches with songs from user's playlist as team
+\item Contributions include front-end web interface using HTML, bootstrap, CSS, implementation of FitBit API to obtain user's intraday heart data
+\end{tightemize}
+\sectionsep
+
+\runsubsection{HarkerHacks 24hr Hackathon}
+\descript{| 2nd Place}
+\location{July 2018 | Fremont, CA}
+\begin{tightemize}
+\item Developed “HackMirror” with Raspberry PI, integrating functionalities such as Amazon ALEXA, face recognition, and voice calling as team
+\item Contributions include voice Real-Time Communication(RTC) interface, fetching current news posts, and assisting in Amazon ALEXA integration with Raspberry PI
+\end{tightemize}
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     LEADERSHIP/EXTRACURRICULAR ACTIVITIES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{LEADERSHIP} 
+
+\runsubsection{Journalism}
+\descript{| Editor Positions in School Newspaper, Winged Post}
+\location{August 2015 - June 2018 | San Jose, CA}
+\sectionsep
+
+
+\runsubsection{MedShare}
+\descript{| Volunteer}
+\location{June 2014 - December 2016 | San Jose, CA}
+\sectionsep
+
+\sectionsep
+
+\end{minipage} 
+\end{document}  \documentclass[]{article}
