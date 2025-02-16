@@ -1,256 +1,244 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Deedy - One Page Two Column Resume
-% LaTeX Template
-% Version 1.1 (30/4/2014)
-%
-% Original author:
-% Debarghya Das (http://debarghyadas.com)
-%
-% Original repository:
-% https://github.com/deedydas/Deedy-Resume
-%
-% IMPORTANT: THIS TEMPLATE NEEDS TO BE COMPILED WITH XeLaTeX
-%
-% This template uses several fonts not included with Windows/Linux by
-% default. If you get compilation errors saying a font is missing, find the line
-% on which the font is used and either change it to a font included with your
-% operating system or comment the line out to use the default font.
-% 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 
-% TODO:
-% 1. Integrate biber/bibtex for article citation under publications.
-% 2. Figure out a smoother way for the document to flow onto the next page.
-% 3. Add styling information for a "Projects/Hacks" section.
-% 4. Add location/address information
-% 5. Merge OpenFont and MacFonts as a single sty with options.
-% 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% CHANGELOG:
-% v1.1:
-% 1. Fixed several compilation bugs with \renewcommand
-% 2. Got Open-source fonts (Windows/Linux support)
-% 3. Added Last Updated
-% 4. Move Title styling into .sty
-% 5. Commented .sty file.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% Known Issues:
-% 1. Overflows onto second page if any column's contents are more than the
-% vertical limit
-% 2. Hacky space on the first bullet point on the second column.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
 
-\documentclass[]{deedy-resume-openfont}
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\classesList}[4]{
+    \item\small{
+        {#1 #2 #3 #4 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \begin{document}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%     LAST UPDATED DATE
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%----------HEADING----------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
+%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
+% \end{tabular*}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%     TITLE NAME
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+    {\Huge \scshape Vijay Bharadwaj} \\ \vspace{1pt}
+    \small \raisebox{-0.1\height}\faPhone\ 510-358-6867 ~ \href{mailto:x@gmail.com}{\raisebox{-0.2\height}\faEnvelope\  \underline{vijay.s.bharadwaj@gmail.com}} ~ 
+    \href{https://linkedin.com/in//}{\raisebox{-0.2\height}\faLinkedin\ \underline{linkedin.com/in/vijay-s-bharadwaj}}  ~
+    \href{https://github.com/}{\raisebox{-0.2\height}\faGithub\ \underline{github.com/18vijayb}}
+    \vspace{-8pt}
+\end{center}
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.05in, label={}]
+    \small{\item{
+     \textbf{Languages}{: Java, Kotlin, C++, C, Python, GoLang, Typescript, Dart, Swift, Rust, Haskell, Bash} \\
+     \textbf{Frameworks}{: React, NextJS, Angular, Django, Flask, ExpressJS, Spring} \\
+     \textbf{Technologies}{: AWS, GCP, Firebase, Supabase, Git} \\
+    }}
+ \end{itemize}
+ \vspace{-20pt}
+ 
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Google $|$ New York, NY}{Aug 2022 - Current}
+      {Software Engineer III}{}
+      \resumeItemListStart
+        \resumeItem{Led cross-domain alignment and designed microservice architecture to transition from monolithic data model to domain-driven services}
+        \resumeItem{Developed automation of compliance request withdrawals, delivering a 10\% reduction in request processing time and eliminating risk of erroneous data production}
+        \resumeItem{Engineered API interface to intake European compliance requests, mitigating financial risk and establishing scalable foundation for handling API-based requests}
+        \resumeItem{Developed a notification system for compliance workflows, automating user interactions and boosting request throughput by 25\% using state machine and messaging architecture}
+      \resumeItemListEnd
+    \vspace{-20pt}
+    \resumeSubheading
+      {}{}
+      {Software Engineer II}{}
+      \resumeItemListStart
+        \resumeItem{Implemented flagging library to escalate handling of sensitive requests to internal approvers}
+        \resumeItem{Built custom monitoring for messaging infrastructure to automate bug filing, reducing on-call responsibility}
+        \resumeItem{Drove several improvements to legacy OCR service, resulting in error rate reduction and improved reliability}
+        \resumeItem{Integrated domestic compliance workflows into emerging automated system, driving cumulative adoption to 50\%}
+      \resumeItemListEnd
+      
+    \resumeSubheading
+      {Clever $|$ San Francisco, CA}{May 2021 - Jun 2022}
+      {Fullstack Software Engineer I}{}
+      \resumeItemListStart
+        \resumeItem{Implemented multifactor authentication - TOTP, SMS, Voice, WebAuthn - for Clever teacher and staff logins}
+        \resumeItem{Led development and implementation of "Remember Me" feature for all Clever users}
+     \resumeItemListEnd
+     \vspace{-15pt}
+     \resumeSubheading
+      {}{}
+      {Fullstack Software Engineer Intern}{}
+     \resumeItemListStart
+        \resumeItem{Built tooling interface for product maangers to access and modify internal data of emerging Clever product}
+    \resumeItemListEnd
+    
+
+    \resumeSubheading
+      {Amazon $|$ Seattle, WA}{Jun 2020 -- Nov 2020}
+      {Backend Software Engineer Intern}{}
+    \resumeItemListStart
+        \resumeItem{Built two new features for Alexa routines, maintaining backward compatibility and optimizing with multithreading}
+    \resumeItemListEnd
+    \resumeSubheading
+      {Purdue University $|$ West Lafayette, IN}{Jan 2019 -- May 2022}
+      {Undergraduate Teaching Assistant}{}
+    \resumeItemListStart
+        \resumeItem{Proctored PSOs, lab sessions, office hours; designed lab assignments; graded labs, homework}
+    \resumeItemListEnd
+    
+  \resumeSubHeadingListEnd
+\vspace{-16pt}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Purdue University | West Lafayette, IN}{Aug 2018 -- Dec 2021}
+      {Bachelor of Science in Computer Science, Mathematics, and Statistics}{}
+    \begin{itemize}[leftmargin=0in, label={}]
+    \small{\item{
+     \textbf{Relevant Coursework}{: Analysis of Algorithms, Data Structures, Operating Systems, Real Analysis, Linear Algebra II}
+      \textbf{Awards}{: Purdue Corporate Partner Scholarship, Deans List}
+    }}
+ \end{itemize}
+
+  \resumeSubHeadingListEnd
+  \vspace{-20pt}
+
+%-----------PUBLICATIONS-----------
+\section{Publications}
+    \vspace{-5pt}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{3D AF Surfer} $|$ \emph{PHP, Python, Perl}}{Apr 2022}
+            \begin{itemize}[leftmargin=0.05in, label={}]
+            \resumeItem{Aderinwale, T., Bharadwaj, V., Christoffer, C. et al. Real-time structure search and structure classification for AlphaFold protein models. Commun Biol 5, 316 (2022). https://doi.org/10.1038/s42003-022-03261-8}
+            \end{itemize}    
+          \vspace{-22pt}
+      \resumeProjectHeading
+          {\textbf{LZerD Web Server with De Novo Structure Prediction} $|$ \emph{Python, Typescript}}{Aug 2021}
+            \begin{itemize}[leftmargin=0.15in, ]
+            \resumeItem{Christoffer C, Bharadwaj V, Luu R and Kihara D (2021) LZerD Protein-Protein Docking Webserver Enhanced With de novo Structure Prediction. Front. Mol. Biosci. 8:724947. doi: 10.3389/fmolb.2021.724947  }
+            \resumeItem{Christoffer, C., Chen, S., Bharadwaj, V., Aderinwale, T., Kumar, V., Hormati, M., and Kihara, D. (2021). LZerD webserver for pairwise and multiple protein-protein docking. Nucleic acids research, gkab336.  https://doi.org/10.1093/nar/gkab336}
+            \end{itemize}    
+\resumeSubHeadingListEnd
+\vspace{-20pt}
+
+%-----------INVOLVEMENT---------------
+\section{Community Involvement}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     {IMentor NYC (November 2023 - Present), Google Stuyvesant Mentorship Program (January 2023 - May 2023)} \\
+    }}
+ \end{itemize}
+ \vspace{-16pt}
 
 
-\namesection{Vijay}{Bharadwaj}{ \urlstyle{same}\url{}
-\href{https://18vijayb.github.io}{https://18vijayb.github.io} \\
-\href{mailto:bhardav@purdue.edu}{bharadv@purdue.edu} | 510-358-6867
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%     COLUMN ONE
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{minipage}[t]{0.31\textwidth} 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     EDUCATION
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Education} 
-
-\subsection{Purdue University}
-\descript{West Lafayette, IN}
-\descript{BS in Computer Science, \\Mathematics, and Statistics}
-\location{Expected Graduation: Dec 2021 \\ Cumulative GPA: 3.95/4.0}
-\sectionsep
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     COURSEWORK
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Coursework}
-\subsection{Fall 2021}
-\textbullet{Operating Systems} \\
-\textbullet{Programming Languages} \\
-\textbullet{Introduction to Cryptography} \\
-\textbullet{Vector Calculus} \\
-\vspace{0.2cm}
-\subsection{Completed}
-\textbullet{Introduction to Analysis of Algorithms} \\
-\textbullet{Data Structures} \\
-\textbullet{Competitive Programming II} \\
-\textbullet{Systems Programming} \\
-\textbullet{Compilers} \\
-\textbullet{Data Mining and Machine Learning}
-\textbullet{Computer Architecture} \\
-\textbullet{Numerical Methods} \\
-\textbullet{Introduction to Real Analysis} \\
-\textbullet{Probability} \\
-\textbullet{Linear Algebra II} \\
-\sectionsep
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     SKILLS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{LANGUAGES AND TOOLS}
-Java \textbullet{}Angular 6 \textbullet{} Typescript \\
-Microsoft SQL \textbullet{} HTML \textbullet{}Python \\
-Git \textbullet{} R \textbullet{} Javascript \textbullet{} Django 
-\\
-Assembly (MIPS) \textbullet{} C \textbullet{} Swagger 
-\\
-Flask \textbullet{} NodeJS \textbullet{} FFmpeg \textbullet{} Spring 
-\\
-Mockito \textbullet{} Lombok \textbullet{} C++ \textbullet{} PHP 
-\\ 
-Perl \textbullet{} Haskell \textbullet{} Rust
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     AWARDS AND RECOGNITION
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Awards and Recognition} 
-\descript{Purdue Corporate Partner Scholarship}
-
-\descript{Scholastic Recognition: Dean's List}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     CODING COMPETITIONS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{CODING CONTESTS}
-
-\runsubsection{CPU Monthly Codathon}
-\descript{\\1st Place}
-\location{Sep 2019 | West Lafayette, IN}
-\sectionsep
-
-\runsubsection{AMCS CODING CHALLENGE}
-\descript{\\2nd Place}
-\location{Feb 2019 | West Lafayette, IN}
-\sectionsep
-
-\section{CAMPUS INVOLVEMENT}
-
-\runsubsection{Launchpad Mentor}
-\location{\\Aug 2021 - Dec 2021}
-
-\runsubsection{Purdue society of professional engineers}
-\location{\\Jan 2019 - May 2019}
-
-\sectionsep
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%     COLUMN TWO
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\end{minipage} 
-\hfill
-\begin{minipage}[t]{0.67\textwidth} 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     WORK EXPERIENCE
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{WORK EXPERIENCE}
-
-\runsubsection{SDE Intern, Amazon.com}
-\location{ \\ June 2020 - Nov 2020| Seattle, WA}
-\vspace{\topsep} % Hacky fix for awkward extra vertical space
-\begin{tightemize}
-\item Worked in Alexa Automation team to build new feature for Amazon Alexa service
-\item Produced technical design document detailing business use cases, high level architecture, error handling, and sequence diagrams
-\item Modified live APIs to support new feature and maintain backward compatibility, built unit and integration tests, performed end-to-end demo for Alexa org
-\item Technologies: Java (Spring MVC architecture), Mockito for unit tests, AWS DynamoDB, Git for version control
-\end{tightemize}
-\sectionsep
-
-\runsubsection{Undergraduate Research Assistant, Kihara Bioinformatics Lab}
-\location{\\ November 2019 - May 2021 | West Lafayette, IN}
-\begin{tightemize}
-\item Augmented LZeRD Web Server, a tool for protein-protein docking prediction, with user login functionality, interface for MultiLZeRD for process and search requests, submissions by PDB ID and IDPLZerD interface and results
-\item Technologies: Django, HTML, Javascript, NGL Javascript API, Bootstrap
-\end{tightemize}
-\sectionsep
-
-\runsubsection{Undergraduate Teaching Assistant, Purdue University}
-\location{\\ January 2019 - May 2020 | West Lafayette, IN}
-\begin{tightemize}
-\item Proctored lab sessions, office hours; graded labs, homework and assisted students in Programming with Multimedia Objects - Python (Spring 2019), Problem Solving and Object-Oriented Programming - Java (Fall 2019), and Programming in C (Spring 2020)
-\item Designed lab assignments for Programming in C course, including assignment idea/background, methods and descriptions, sample inputs/outputs (Spring 2020)
-\end{tightemize}
-\sectionsep
-
-\runsubsection{Technology Intern, UPS}
-\location{\\ June 2019 - August 2019 | Louisville, KY}
-
-\begin{tightemize}
-\item Added microservices to Network Planning Tool (NPT) UI, including writing code to generate Excel reports based on user inputs by querying database, enhancing current design, and designing ag-grid for user to update database tables
-\item Designed RESTful APIs using Controller-Service-Repository architecture, URI endpoints and HTTP requests to interact with APIs
-\item Technologies: Angular 6 (HTML and Typescript), Java, SQL, Team Foundation Server for version control
-\end{tightemize}
-\sectionsep
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     PUblications
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section {Publications}
-\runsubsection{LZerD Web Server}
-\begin{tightemize}
-\item Christoffer, C., Chen, S., Bharadwaj, V., Aderinwale, T., Kumar, V., Hormati, M., & Kihara, D. (2021). LZerD webserver for pairwise and multiple protein-protein docking. Nucleic acids research, gkab336. Advance online publication. https://doi.org/10.1093/nar/gkab336
-\end{tightemize}
-\sectionsep
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     PROJECTS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section {PROJECTS}
-
-\runsubsection{Twitch Chat Video Downloader}
-\begin{tightemize}
-\item Recreated twitch chat into video using FFmpeg and Python with Twitch APIs
-\item Constructed web server using Flask to host editing software using Javascript and HTML for webpages, Flask for backend, Git for version control
-\end{tightemize}
-\sectionsep
-
-\runsubsection{Demon Hacks}
-\descript{| 2nd Place}
-\location{October 2019 | Chicago, IL}
-\begin{tightemize}
-\item Developed "BeatQ," an application that allows a user to host a session that  creates a Spotify playlist. Guests can join the hosted session and add their favorite songs.
-\item Contributions include creation of Flask routes and functions, front-end UI using HTML, bootstrap, CSS, integration with Spotify API to create playlist and search songs
-\end{tightemize}
-\sectionsep
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     LEADERSHIP/EXTRACURRICULAR ACTIVITIES
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\end{minipage} 
-\end{document}  \documentclass[]{article}
+\end{document}
